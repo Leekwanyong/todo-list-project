@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "./Input";
 
 const List = () => {
   // 할 일 목록을 저장하는 객체로 형태로 상태를 업데이트
-  const [list, setList] = useState([
-    { id: Date.now(), text: "123", checked: false },
-  ]);
+  // 로컬스토리지에 저장
+  const [list, setList] = useState(() => {
+    const storedData = localStorage.getItem("myList");
+    return storedData
+      ? JSON.parse(storedData)
+      : [{ id: Date.now(), text: "123", checked: false }];
+  });
   const [filter, setFilter] = useState("all");
+
+  useEffect(() => {
+    localStorage.setItem("myList", JSON.stringify(list));
+  }, [list]);
 
   // 기존의 배열과 Input컴포넌트에서 받아온 것과 비교하여 업데이트 불변성 불변성!!!!!!!!!
   const listItem = (todo) => {
