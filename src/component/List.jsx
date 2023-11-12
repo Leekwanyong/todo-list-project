@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Input from "./Input";
+import { DarkModeContext } from "../darkmode/DarkModeContext";
 
 const List = () => {
   // 할 일 목록을 저장하는 객체로 형태로 상태를 업데이트
@@ -43,8 +44,11 @@ const List = () => {
       return true;
     }
   });
+  const { darkMode, darkModeBtn } = useContext(DarkModeContext);
   return (
-    <div>
+    <div className={darkMode ? "dark" : "light"}>
+      <button onClick={() => darkModeBtn()}>ads</button>
+      <span>{darkMode.toString()}</span>
       <button onClick={() => setFilter("all")}>모든 할일</button>
       <button onClick={() => setFilter("active")}>해야할 일</button>
       <button onClick={() => setFilter("completed")}>완료된 일</button>
