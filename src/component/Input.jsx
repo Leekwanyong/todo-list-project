@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AiOutlinePlus, AiOutlinePlusCircle } from "react-icons/ai";
 
 const Input = ({ onText }) => {
   // 사용자가 입력한 값 상태 업데이트
@@ -19,9 +20,17 @@ const Input = ({ onText }) => {
     setText(e.target.value);
   };
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" value={text} onChange={onChangeValue} />
-      <button>Add</button>
+    <form onSubmit={onSubmit} className="form">
+      <input
+        className="form-input"
+        type="text"
+        value={text}
+        onChange={onChangeValue}
+      />
+
+      <button>
+        <AiOutlinePlusCircle />
+      </button>
     </form>
   );
 };

@@ -1,9 +1,173 @@
-.dark{
-    background-color: black;
-    color: white;
+.root {
+    text-align: center;
+    max-width: 1080px;
+    margin: auto;
+    padding: 1rem;
 }
 
-.light {
+.main {
+    margin-top: 1rem;
+    border: 1px solid black;
+}
+
+button {
+    cursor: pointer;
+}
+/* darkMode*/
+.dark{
+    background-color: #282c35;
+    color: white;
+    accent-color: #ffe246;
+}
+
+.light{
     background-color: white;
-    color: black;
+    color: #222;
+    accent-color: #12cbef;
+}
+
+.dark .darkModeBtn {
+    color: #FFD700;
+}
+
+.light .lightModeBtn {
+    color: #F0F0F0;
+}
+
+.dark .active-btn__filter {
+    color: #F0F0F0;
+}
+
+/* List Btn 설정*/
+.darkModeBtn {
+    padding: 17px 60px;
+    margin-left: 1rem;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    background-color: #222;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+}
+
+.darkModeBtn:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 490%;
+    width: 140%;
+    background: #78c7d2;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+
+.darkModeBtn:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+.active-btn {
+    padding: 1rem;
+}
+
+.active-btn__filter {
+    padding: 17px 60px;
+    margin-left: 1rem;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    background-color: #222;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+}
+
+.active-btn__filter:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 490%;
+    width: 140%;
+    background: #78c7d2;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+
+.active-btn__filter:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+/*  list    */
+.list {
+    list-style: none;
+    padding: 1rem;
+}
+
+.list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.list li button {
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    color: red;
+}
+
+
+/*  form    */
+.form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.form input {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    color: #999999;
+    border-radius: 5px;
+}
+
+.form button {
+    height: 40px;
+    width: 5%;
+    margin-left: 1rem;
+    background-color: #333;
+    border: 2px solid #333;
+    color: #fff;
+
+}
+.form button:hover {
+    background-color: #fff;
+    border-color: #59b1eb;
+    color: #59b1eb;
 }

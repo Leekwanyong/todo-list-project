@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import Input from "./Input";
 import { DarkModeContext } from "../darkmode/DarkModeContext";
+import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
+import { FaRegTrashCan } from "react-icons/fa6";
 
 const List = () => {
   // 할 일 목록을 저장하는 객체로 형태로 상태를 업데이트
@@ -47,25 +49,50 @@ const List = () => {
   const { darkMode, darkModeBtn } = useContext(DarkModeContext);
   return (
     <div className={darkMode ? "dark" : "light"}>
-      <button onClick={() => darkModeBtn()}>ads</button>
-      <span>{darkMode.toString()}</span>
-      <button onClick={() => setFilter("all")}>모든 할일</button>
-      <button onClick={() => setFilter("active")}>해야할 일</button>
-      <button onClick={() => setFilter("completed")}>완료된 일</button>
-      <ul>
-        {filterItem.map((item) => (
-          <li key={item.id}>
-            <input
-              type="checkbox"
-              checked={item.checked}
-              onChange={() => onTodo(item.id)}
-            />
-            {item.text}
-            <button onClick={() => removeItem(item.id)}>X</button>
-          </li>
-        ))}
-      </ul>
-      <Input onText={listItem} />
+      <div className="root">
+        <div className="main">
+          <div className="active-btn">
+            <button onClick={() => darkModeBtn()} className="darkModeBtn">
+              {darkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
+            </button>
+            <button
+              className="active-btn__filter"
+              onClick={() => setFilter("all")}
+            >
+              모든 할일
+            </button>
+            <button
+              className="active-btn__filter"
+              onClick={() => setFilter("active")}
+            >
+              해야할 일
+            </button>
+            <button
+              className="active-btn__filter"
+              onClick={() => setFilter("completed")}
+            >
+              완료된 일
+            </button>
+          </div>
+          <ul className="list">
+            {filterItem.map((item) => (
+              <li key={item.id}>
+                <input
+                  type="checkbox"
+                  checked={item.checked}
+                  onChange={() => onTodo(item.id)}
+                />
+                {item.text}
+
+                <button onClick={() => removeItem(item.id)}>
+                  <FaRegTrashCan />
+                </button>
+              </li>
+            ))}
+          </ul>
+          <Input onText={listItem} />
+        </div>
+      </div>
     </div>
   );
 };
