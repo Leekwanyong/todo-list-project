@@ -9,7 +9,7 @@ const Input = ({ onText }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (text.trim().length === 0) {
-      alert("할일 목록을 입력해주세요");
+      return alert("할일 목록을 입력해주세요");
     }
     onText({ id: Date.now(), text, checked: false });
     setText("");
